@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (ctx) {
-          return const NetflixHOme();
+          return const NetflixTab();
         },
       ),
     );
