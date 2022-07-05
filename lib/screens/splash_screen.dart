@@ -16,11 +16,6 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -42,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
         seconds: 3,
       ),
     );
-    Navigator.of(context).pushReplacement(
+    Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) {
           return const NetflixTab();
