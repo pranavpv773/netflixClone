@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_flutter/screens/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const NetfLixClone());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class NetfLixClone extends StatelessWidget {
+  const NetfLixClone({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return const SplashScreen();
   }
 }
