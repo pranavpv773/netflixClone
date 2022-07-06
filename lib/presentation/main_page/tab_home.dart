@@ -5,15 +5,14 @@ import 'package:netflix_flutter/presentation/games/games_screen.dart';
 import 'package:netflix_flutter/presentation/home/home_screen.dart';
 import 'package:netflix_flutter/presentation/main_page/widgets/bottomnav_bar.dart';
 import 'package:netflix_flutter/presentation/new_and_hot/new_n_hot.dart';
-import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 
 class NetflixTab extends StatelessWidget {
   NetflixTab({Key? key}) : super(key: key);
 
   final _screens = [
-    HomeScreen(),
+    const HomeScreen(),
     const GamesScreen(),
-    NewNhotScreen(),
+    const NewNhotScreen(),
     const FastLaughScreen(),
     const DownloadScreen(),
   ];

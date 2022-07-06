@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 
@@ -16,24 +17,24 @@ class BottomNavigatonBarWidget extends StatelessWidget {
               indexChangeNotifier.value = index;
             },
             type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.black,
-            selectedItemColor: Colors.white,
+            backgroundColor: kransparent,
+            selectedItemColor: kWhite,
             unselectedItemColor: Colors.grey,
             items: const [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Icon(Icons.home_filled),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.games),
+                icon: Icon(Icons.sports_esports),
                 label: 'Games',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.photo_library_rounded),
+                icon: Icon(Icons.smart_display),
                 label: 'New & Hot',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.emoji_emotions),
+                icon: Icon(Icons.sentiment_very_satisfied_rounded),
                 label: 'Fast Laughs',
               ),
               BottomNavigationBarItem(
