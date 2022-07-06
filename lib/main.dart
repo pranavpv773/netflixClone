@@ -28,7 +28,7 @@ class NetfLixClone extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: NetflixTab(),
+      home: const SplashScreen(),
     );
   }
 }

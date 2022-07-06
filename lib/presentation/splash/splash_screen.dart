@@ -24,9 +24,8 @@ class _SplashScreenState extends State<SplashScreen> {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            "assets/netflixSplash.jpg",
+            "assets/netflixSplash.png",
           ),
-          fit: BoxFit.fill,
         ),
       ),
     );

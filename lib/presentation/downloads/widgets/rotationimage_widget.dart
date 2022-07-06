@@ -3,22 +3,31 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class RotatonalImage extends StatelessWidget {
-  const RotatonalImage({Key? key, required this.image, this.angle = 0})
+  const RotatonalImage(
+      {Key? key,
+      required this.image,
+      required this.margin,
+      required this.size,
+      this.angle = 0})
       : super(key: key);
   final double angle;
   final String image;
+  final EdgeInsets margin;
+  final Size size;
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return Transform.rotate(
       angle: angle * pi / 180,
       child: Container(
-        width: size.width * 0.4,
-        height: size.width * 0.58,
+        margin: margin,
+        width: size.width,
+        height: size.width,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(22),
           image: DecorationImage(
-            image: NetworkImage(image),
+            image: NetworkImage(
+              image,
+            ),
           ),
         ),
       ),
