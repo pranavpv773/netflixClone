@@ -14,7 +14,7 @@ class NetflixTab extends StatelessWidget {
     const GamesScreen(),
     const NewNhotScreen(),
     const FastLaughScreen(),
-    const DownloadScreen(),
+    DownloadScreen(),
   ];
 
   @override
