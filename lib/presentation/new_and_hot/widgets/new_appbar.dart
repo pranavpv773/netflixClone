@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 
-import '../main_page/searchBar/search_screen.dart';
-import 'appbar_user.dart';
+import '../../widgets/appbar_user.dart';
 
-class AppBarWidget extends StatelessWidget {
+class NewAppBar extends StatelessWidget {
   final String title;
-  const AppBarWidget({Key? key, required this.title}) : super(key: key);
+  const NewAppBar({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,25 +27,13 @@ class AppBarWidget extends StatelessWidget {
           ),
           Row(
             children: [
-              GestureDetector(
-                onTap: (() {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (ctx) => const SearchScreen(),
-                    ),
-                  );
-                }),
-                child: Container(
-                  width: 25,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        "assets/search1.png",
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.notifications,
+                    color: kWhite,
+                    size: 30,
+                  )),
               const SizedBox(
                 width: 15,
               ),

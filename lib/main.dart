@@ -14,6 +14,7 @@ class NetfLixClone extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: Colors.black),
         primaryColor: Colors.black,
         scaffoldBackgroundColor: kBackgroundColor,
         primarySwatch: Colors.blue,

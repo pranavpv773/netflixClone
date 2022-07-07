@@ -8,13 +8,15 @@ class AppBarUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 23,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
+      width: 28,
+      height: 28,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        image: const DecorationImage(
           image: AssetImage(
             "assets/blueIcon.png",
           ),
-          fit: BoxFit.contain,
+          fit: BoxFit.cover,
         ),
       ),
     );

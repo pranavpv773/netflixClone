@@ -17,6 +17,7 @@ class MainCard extends StatelessWidget {
             image: NetworkImage(
               image,
             ),
+            fit: BoxFit.cover,
           ),
         ));
   }
