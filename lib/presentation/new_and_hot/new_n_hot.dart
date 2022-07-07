@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_flutter/presentation/utility/constants/constants.dart';
-
-import '../home/home_screen.dart';
 import '../utility/colors/colors.dart';
 import '../widgets/appbar_user.dart';
 import 'widgets/cominsoon_widget.dart';
+import 'widgets/everyonewatching_widget.dart';
 
 class NewNhotScreen extends StatelessWidget {
   const NewNhotScreen({Key? key}) : super(key: key);
@@ -62,7 +60,7 @@ class NewNhotScreen extends StatelessWidget {
                         text: "🍿 Comming Soon",
                       ),
                       Tab(
-                        text: "🍿 Everone's Watching",
+                        text: "🔥 Everone's Watching",
                       ),
                     ]),
               ),
@@ -82,37 +80,15 @@ class NewNhotScreen extends StatelessWidget {
 
   Widget _buidCommingSoon() {
     return ListView.builder(
-        itemCount: 10,
-        itemBuilder: (BuildContext context, index) => const ComingSoonWidget());
+      itemCount: 10,
+      itemBuilder: (BuildContext context, index) => const ComingSoonWidget(),
+    );
   }
 
   Widget _buidEveryoneWatching() {
-    return const SizedBox();
-  }
-}
-
-class NewIconButtons extends StatelessWidget {
-  const NewIconButtons({Key? key, required this.icon, required this.title})
-      : super(key: key);
-  final IconData icon;
-  final String title;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Icon(
-          icon,
-          color: Colors.grey,
-          size: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 2.0),
-          child: Text(
-            title,
-            style: const TextStyle(color: Colors.grey, fontSize: 10),
-          ),
-        )
-      ],
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (BuildContext context, index) => const EveryonesWatching(),
     );
   }
 }

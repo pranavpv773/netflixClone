@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../utility/colors/colors.dart';
 import '../../utility/constants/constants.dart';
-import '../new_n_hot.dart';
+import 'new_iconbuttons.dart';
 
 class ComingSoonWidget extends StatelessWidget {
   const ComingSoonWidget({
