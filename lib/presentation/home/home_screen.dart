@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:netflix_flutter/presentation/home/widgets/background_card.dart';
-import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 import 'package:netflix_flutter/presentation/utility/constants/constants.dart';
-import '../main_page/searchBar/search_screen.dart';
-import '../widgets/appbar_user.dart';
 import 'widgets/home_movie_cards.dart';
 import 'widgets/index_card.dart';
 
-ValueNotifier<bool> scrollNotifier = ValueNotifier(false);
+ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -177,33 +174,38 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                       scrollNotifier.value == true
-                          ? Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: double.infinity,
-                                height: 90,
-                                color: Colors.black.withOpacity(0.5),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          "assets/netflixN.png",
-                                          width: 30,
-                                          height: 30,
-                                        ),
-                                        const Spacer(),
-                                        Container(
-                                          width: 25,
-                                          decoration: const BoxDecoration(
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                "assets/search1.png",
-                                              ),
+                          ? AnimatedContainer(
+                              duration: const Duration(milliseconds: 1200),
+                              width: double.infinity,
+                              height: 90,
+                              color: Colors.black.withOpacity(0.5),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Image.asset(
+                                        "assets/netflixN.png",
+                                        width: 30,
+                                        height: 30,
+                                      ),
+                                      const Spacer(),
+                                      Container(
+                                        width: 30,
+                                        height: 30,
+                                        decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              "assets/search1.png",
                                             ),
+                                            fit: BoxFit.contain,
                                           ),
                                         ),
-                                        Container(
+                                      ),
+                                      kheight30,
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            right: 10.0, left: 10),
+                                        child: Container(
                                           width: 30,
                                           height: 30,
                                           decoration: const BoxDecoration(
@@ -214,10 +216,13 @@ class HomeScreen extends StatelessWidget {
                                               fit: BoxFit.contain,
                                             ),
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                    Row(
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 18.0),
+                                    child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: const [
@@ -243,9 +248,9 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                         )
                                       ],
-                                    )
-                                  ],
-                                ),
+                                    ),
+                                  )
+                                ],
                               ),
                             )
                           : kheight20
