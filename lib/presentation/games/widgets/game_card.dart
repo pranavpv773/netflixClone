@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_flutter/presentation/widgets/movie_card_main.dart';
-
-import '../../utility/constants/constants.dart';
 import '../../utility/text_Widget/text_widget.dart';
 import 'game_card_list.dart';
 

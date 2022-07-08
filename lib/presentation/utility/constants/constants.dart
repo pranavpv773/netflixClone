@@ -10,3 +10,4 @@ const kheight20 = SizedBox(
 final BorderRadius kRadius10 = BorderRadius.circular(10);
 const kMainImg =
     "https://www.themoviedb.org/t/p/original/6JjfSchsU6daXk2AKX8EEBjO3Fm.jpg";
+const imageAppendUrl = "https://image.tmdb.org/t/p/w500";

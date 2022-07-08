@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_flutter/presentation/main_page/searchBar/widgets/search_list_widget.dart';
 import 'package:netflix_flutter/presentation/main_page/searchBar/widgets/search_title.dart';
 
 const gridImage =
