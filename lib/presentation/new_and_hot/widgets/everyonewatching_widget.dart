@@ -4,8 +4,14 @@ import '../../utility/colors/colors.dart';
 import 'new_iconbuttons.dart';
 
 class EveryonesWatching extends StatelessWidget {
+  final String posterPath;
+  final String movieName;
+  final String description;
   const EveryonesWatching({
     Key? key,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override

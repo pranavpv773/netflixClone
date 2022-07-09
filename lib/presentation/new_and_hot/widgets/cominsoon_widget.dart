@@ -4,8 +4,20 @@ import '../../utility/constants/constants.dart';
 import 'new_iconbuttons.dart';
 
 class ComingSoonWidget extends StatelessWidget {
+  final String id;
+  final String month;
+  final String day;
+  final String posterPath;
+  final String movieName;
+  final String description;
   const ComingSoonWidget({
     Key? key,
+    required this.id,
+    required this.month,
+    required this.day,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -21,16 +33,16 @@ class ComingSoonWidget extends StatelessWidget {
             width: 50,
             height: 400,
             child: Column(
-              children: const [
+              children: [
                 Text(
-                  "Feb",
-                  style: TextStyle(
+                  month,
+                  style: const TextStyle(
                     color: Colors.grey,
                   ),
                 ),
                 Text(
-                  "11",
-                  style: TextStyle(
+                  day,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
                     color: kWhite,
@@ -52,7 +64,7 @@ class ComingSoonWidget extends StatelessWidget {
                         width: double.infinity,
                         height: 200,
                         child: Image.network(
-                          "https://www.themoviedb.org/t/p/original/zx1SbUeuafTm1s5jbcvzg3F1JUD.jpg",
+                          posterPath,
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -94,31 +106,37 @@ class ComingSoonWidget extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        "JAADUGAR",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30,
-                          color: Colors.amber,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          movieName,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.amber,
+                          ),
                         ),
                       ),
-                      NewIconButtons(
+                      const NewIconButtons(
                         icon: Icons.notifications_none_outlined,
                         title: "Remind Me",
                       ),
-                      NewIconButtons(
+                      const NewIconButtons(
                         icon: Icons.info_outline,
                         title: "Info",
                       ),
                     ],
                   ),
                   kheight20,
-                  const Text("Coming on 15 July"),
+                  Text("Coming on $day $month"),
                   kheight20,
-                  const Text(
-                    "A small-town magician with zero interest in football must lead his local team to the finals of a tournament if he wisheses to marry the love of his life",
-                    style: TextStyle(color: Colors.grey),
+                  Expanded(
+                    child: Text(
+                      description,
+                      style: const TextStyle(color: Colors.grey),
+                    ),
                   )
                 ],
               ),

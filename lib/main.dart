@@ -5,6 +5,7 @@ import 'package:netflix_flutter/presentation/splash/splash_screen.dart';
 import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 
 import 'application/fast_Laugh/fast_laugh_bloc.dart';
+import 'application/hot_and_new/hot_and_new_bloc.dart';
 import 'application/search/search_bloc.dart';
 import 'domain/utility/di/injectable.dart';
 
@@ -29,6 +30,9 @@ class NetfLixClone extends StatelessWidget {
         ),
         BlocProvider(
           create: (ctx) => getIt<FastLaughBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<HotAndNewBloc>(),
         )
       ],
       child: MaterialApp(
