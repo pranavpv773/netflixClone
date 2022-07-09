@@ -5,6 +5,7 @@ import 'package:netflix_flutter/presentation/splash/splash_screen.dart';
 import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 
 import 'application/fast_Laugh/fast_laugh_bloc.dart';
+import 'application/search/search_bloc.dart';
 import 'domain/utility/di/injectable.dart';
 
 Future<void> main() async {
@@ -22,6 +23,9 @@ class NetfLixClone extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (ctx) => getIt<DownloadsBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<SearchBloc>(),
         ),
         BlocProvider(
           create: (ctx) => getIt<FastLaughBloc>(),

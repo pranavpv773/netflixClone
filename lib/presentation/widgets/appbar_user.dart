@@ -16,7 +16,7 @@ class AppBarUser extends StatelessWidget {
           image: AssetImage(
             "assets/blueIcon.png",
           ),
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
       ),
     );

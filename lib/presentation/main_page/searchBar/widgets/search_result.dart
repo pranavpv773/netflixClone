@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix_flutter/presentation/main_page/searchBar/widgets/search_title.dart';
 
-const gridImage =
-    "https://www.themoviedb.org/t/p/original/2MTMJljusJMFu9QSZfGnaY1B0UK.jpg";
+import '../../../../application/search/search_bloc.dart';
 
 class SearchResult extends StatelessWidget {
   const SearchResult({Key? key}) : super(key: key);
@@ -14,18 +14,25 @@ class SearchResult extends StatelessWidget {
       children: [
         const SearchTitle(title: 'Movies & TV'),
         Expanded(
-          child: GridView.count(
-            crossAxisCount: 3,
-            shrinkWrap: true,
-            mainAxisSpacing: 6,
-            crossAxisSpacing: 6,
-            childAspectRatio: 1 / 1.5,
-            children: List.generate(
-              20,
-              (index) {
-                return const MainMovieCard();
-              },
-            ),
+          child: BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              return GridView.count(
+                crossAxisCount: 3,
+                shrinkWrap: true,
+                mainAxisSpacing: 6,
+                crossAxisSpacing: 6,
+                childAspectRatio: 1 / 1.5,
+                children: List.generate(
+                  state.searchResultList.length,
+                  (index) {
+                    final movie = state.searchResultList[index];
+                    return MainMovieCard(
+                      imageUrl: movie.posterImageUrl,
+                    );
+                  },
+                ),
+              );
+            },
           ),
         ),
       ],
@@ -34,7 +41,8 @@ class SearchResult extends StatelessWidget {
 }
 
 class MainMovieCard extends StatelessWidget {
-  const MainMovieCard({Key? key}) : super(key: key);
+  final String imageUrl;
+  const MainMovieCard({Key? key, required this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +50,8 @@ class MainMovieCard extends StatelessWidget {
       height: 80,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        image: const DecorationImage(
-          image: NetworkImage(gridImage),
+        image: DecorationImage(
+          image: NetworkImage(imageUrl),
           fit: BoxFit.fill,
         ),
       ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_flutter/application/search/search_bloc.dart';
+import 'package:netflix_flutter/presentation/utility/constants/constants.dart';
 
 import 'search_title.dart';
 import 'top_searchlist.dart';
-
-const imgUrl =
-    "https://www.themoviedb.org/t/p/original/oMkVNujGNmGmfNeHwxcUF6mncQJ.jpg";
 
 class SearchListWidget extends StatelessWidget {
   const SearchListWidget({Key? key}) : super(key: key);
@@ -18,13 +18,35 @@ class SearchListWidget extends StatelessWidget {
           title: "Top Searches",
         ),
         Expanded(
-          child: ListView.separated(
-            shrinkWrap: true,
-            itemBuilder: (context, index) => const TopSearchList(),
-            separatorBuilder: (context, index) => const Divider(
-              height: 6,
-            ),
-            itemCount: 10,
+          child: BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              if (state.isLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state.isError) {
+                return const Center(
+                  child: Text("error while getting data"),
+                );
+              } else if (state.idleList.isEmpty) {
+                return const Center(
+                  child: Text("List is empty"),
+                );
+              }
+              return ListView.separated(
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  final movie = state.idleList[index];
+                  return TopSearchList(
+                      title: movie.title ?? 'No Title Provided',
+                      imageUrl: '$imageAppendUrl${movie.posterPath}');
+                },
+                separatorBuilder: (context, index) => const Divider(
+                  height: 6,
+                ),
+                itemCount: state.idleList.length,
+              );
+            },
           ),
         )
       ],

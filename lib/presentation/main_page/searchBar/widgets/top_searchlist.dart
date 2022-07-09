@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_flutter/presentation/main_page/searchBar/widgets/search_list_widget.dart';
 import '../../../utility/colors/colors.dart';
 
 class TopSearchList extends StatelessWidget {
-  const TopSearchList({Key? key}) : super(key: key);
+  final String title;
+  final String imageUrl;
+  const TopSearchList({Key? key, required this.title, required this.imageUrl})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +17,22 @@ class TopSearchList extends StatelessWidget {
           Container(
             width: screenWidth * 0.34,
             height: 70,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
-                  imgUrl,
+                  imageUrl,
                 ),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          const Expanded(
+          SizedBox(
+            width: 10,
+          ),
+          Expanded(
             child: Text(
-              "  Stranger Things",
-              style: TextStyle(
+              title,
+              style: const TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,
               ),

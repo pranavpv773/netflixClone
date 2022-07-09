@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix_flutter/presentation/home/widgets/background_card.dart';
 import 'package:netflix_flutter/presentation/utility/constants/constants.dart';
+import '../../application/downloads/downloads_bloc.dart';
 import 'widgets/home_movie_cards.dart';
 import 'widgets/index_card.dart';
 
@@ -12,6 +14,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<DownloadsBloc>(context).add(
+      const DownloadsEvent.getDownloadsImages(),
+    );
     return SafeArea(
       child: Scaffold(
           body: ValueListenableBuilder(
