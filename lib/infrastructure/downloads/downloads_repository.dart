@@ -20,7 +20,6 @@ class DownloadsRepository implements IDownloadsRepo {
           return Downloads.fromJson(e);
         }).toList();
 
-        print(downloadsList);
         return Right(downloadsList);
       } else {
         return const Left(MainFailure.serverFailure());

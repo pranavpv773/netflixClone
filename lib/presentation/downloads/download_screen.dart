@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix_flutter/application/downloads/downloads_bloc.dart';
 import 'package:netflix_flutter/presentation/downloads/widgets/rotationimage_widget.dart';
 import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
-import 'package:netflix_flutter/presentation/utility/constants/constants.dart';
 import 'package:netflix_flutter/presentation/widgets/appbar.dart';
 
 class DownloadScreen extends StatelessWidget {

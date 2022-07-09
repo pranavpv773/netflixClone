@@ -159,6 +159,7 @@ class _FastLaughVideoPlayerState extends State<FastLaughVideoPlayer> {
       setState(() {
         _videoPlayerController.play();
       });
+      super.initState();
     });
   }
 
