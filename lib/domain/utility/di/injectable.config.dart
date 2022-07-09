@@ -8,6 +8,7 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../../../application/downloads/downloads_bloc.dart' as _i5;
+import '../../../application/fast_Laugh/fast_laugh_bloc.dart' as _i6;
 import '../../../infrastructure/downloads/downloads_repository.dart' as _i4;
 import '../../downloads/modals/i_downloads_repo.dart'
     as _i3; // ignore_for_file: unnecessary_lambdas
@@ -20,5 +21,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i3.IDownloadsRepo>(() => _i4.DownloadsRepository());
   gh.factory<_i5.DownloadsBloc>(
       () => _i5.DownloadsBloc(get<_i3.IDownloadsRepo>()));
+  gh.factory<_i6.FastLaughBloc>(
+      () => _i6.FastLaughBloc(get<_i3.IDownloadsRepo>()));
   return get;
 }

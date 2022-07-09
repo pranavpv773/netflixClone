@@ -1,6 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_flutter/presentation/main_page/searchBar/widgets/search_list_widget.dart';
+import 'package:netflix_flutter/application/fast_Laugh/fast_laugh_bloc.dart';
+import 'package:netflix_flutter/domain/downloads/modals/downloads.dart';
 import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
+import 'package:video_player/video_player.dart';
+
+class VideoListItemInheritedWidget extends InheritedWidget {
+  final Widget widget;
+  final Downloads movieData;
+
+  const VideoListItemInheritedWidget({
+    Key? key,
+    required this.widget,
+    required this.movieData,
+  }) : super(key: key, child: widget);
+
+  @override
+  bool updateShouldNotify(covariant VideoListItemInheritedWidget oldWidget) {
+    return oldWidget.movieData != movieData;
+  }
+
+  static VideoListItemInheritedWidget? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<VideoListItemInheritedWidget>();
+  }
+}
 
 class VideoList extends StatelessWidget {
   final int index;
@@ -8,10 +31,14 @@ class VideoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final posterPath =
+        VideoListItemInheritedWidget.of(context)?.movieData.posterPath;
+    final ScreenVideoUrls = videoUrls[index % videoUrls.length];
     return Stack(
       children: [
-        Container(
-          color: Colors.accents[index % Colors.accents.length],
+        FastLaughVideoPlayer(
+          videoUrl: ScreenVideoUrls,
+          onStateChanged: (bool) {},
         ),
         Align(
           alignment: Alignment.bottomCenter,
@@ -34,40 +61,46 @@ class VideoList extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
+                  children: [
                     CircleAvatar(
                       radius: 25,
-                      backgroundImage: NetworkImage(imgUrl),
+                      backgroundImage: posterPath == null
+                          ? null
+                          : NetworkImage(
+                              'https://image.tmdb.org/t/p/w500$posterPath'),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    VideoReactionsWidget(
+                    const VideoReactionsWidget(
                       icon: Icons.sentiment_very_satisfied_sharp,
                       title: "31.1K",
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    VideoReactionsWidget(
+                    const VideoReactionsWidget(
                       icon: Icons.add,
                       title: "My List",
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    VideoReactionsWidget(
-                      icon: Icons.send_outlined,
-                      title: "17.2K",
+                    GestureDetector(
+                      onTap: () {},
+                      child: const VideoReactionsWidget(
+                        icon: Icons.send_outlined,
+                        title: "17.2K",
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    VideoReactionsWidget(
+                    const VideoReactionsWidget(
                       icon: Icons.play_arrow,
                       title: "Play",
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                   ],
@@ -103,5 +136,54 @@ class VideoReactionsWidget extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class FastLaughVideoPlayer extends StatefulWidget {
+  final String videoUrl;
+  final void Function(bool isPlaying) onStateChanged;
+  const FastLaughVideoPlayer(
+      {Key? key, required this.videoUrl, required this.onStateChanged})
+      : super(key: key);
+
+  @override
+  State<FastLaughVideoPlayer> createState() => _FastLaughVideoPlayerState();
+}
+
+class _FastLaughVideoPlayerState extends State<FastLaughVideoPlayer> {
+  late VideoPlayerController _videoPlayerController;
+  @override
+  void initState() {
+    _videoPlayerController = VideoPlayerController.network(widget.videoUrl);
+    _videoPlayerController.initialize().then((value) {
+      setState(() {
+        _videoPlayerController.play();
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: double.infinity,
+      child: _videoPlayerController.value.isInitialized
+          ? AspectRatio(
+              aspectRatio: _videoPlayerController.value.aspectRatio,
+              child: VideoPlayer(_videoPlayerController),
+            )
+          : const Center(
+              child: CircularProgressIndicator(
+                color: Colors.red,
+                strokeWidth: 2,
+              ),
+            ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _videoPlayerController.dispose();
+    super.dispose();
   }
 }
