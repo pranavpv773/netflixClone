@@ -26,7 +26,7 @@ class EveryonesWatching extends StatelessWidget {
                 width: double.infinity,
                 height: 200,
                 child: Image.network(
-                  "https://www.themoviedb.org/t/p/original/5pVJ9SuuO72IgN6i9kMwQwnhGHG.jpg",
+                  posterPath,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -71,35 +71,39 @@ class EveryonesWatching extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
-                "SPIDER-MAN ",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                  color: Color.fromARGB(255, 170, 53, 45),
+            children: [
+              Expanded(
+                child: Text(
+                  movieName,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: kWhite,
+                  ),
                 ),
               ),
-              NewIconButtons(
+              const NewIconButtons(
                 icon: Icons.share,
                 title: "Share",
               ),
-              NewIconButtons(
+              const NewIconButtons(
                 icon: Icons.check,
                 title: "My List",
               ),
-              NewIconButtons(
+              const NewIconButtons(
                 icon: Icons.play_arrow,
                 title: "Play",
               ),
             ],
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Text(
-            "A small-town magician with zero interest in football must lead his local team to the finals of a tournament if he wisheses to marry the love of his life",
-            style: TextStyle(color: Colors.grey),
+            description,
+            style: const TextStyle(color: Colors.grey),
           ),
         )
       ],
