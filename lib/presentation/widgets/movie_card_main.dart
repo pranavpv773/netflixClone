@@ -3,22 +3,25 @@ import 'package:flutter/material.dart';
 import '../utility/constants/constants.dart';
 
 class MainCard extends StatelessWidget {
-  final String image;
-  const MainCard({Key? key, required this.image}) : super(key: key);
+  final String imageUrl;
+  const MainCard({Key? key, required this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 150,
-        height: 200,
-        decoration: BoxDecoration(
-          borderRadius: kRadius10,
-          image: DecorationImage(
-            image: NetworkImage(
-              image,
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Container(
+          width: 150,
+          height: 180,
+          decoration: BoxDecoration(
+            borderRadius: kRadius10,
+            image: DecorationImage(
+              image: NetworkImage(
+                imageUrl,
+              ),
+              fit: BoxFit.cover,
             ),
-            fit: BoxFit.cover,
-          ),
-        ));
+          )),
+    );
   }
 }

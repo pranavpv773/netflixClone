@@ -5,11 +5,13 @@ import '../../utility/text_Widget/text_widget.dart';
 import 'indexcard_list.dart';
 
 class IndexMovieCard extends StatelessWidget {
-  const IndexMovieCard({Key? key, required this.title})
+  const IndexMovieCard(
+      {Key? key, required this.title, required this.postersList})
       : super(
           key: key,
         );
   final String title;
+  final List<String> postersList;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,10 +26,9 @@ class IndexMovieCard extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: List.generate(
-              20,
+              postersList.length,
               (index) => IndexCardList(
-                image:
-                    "https://www.themoviedb.org/t/p/original/2MTMJljusJMFu9QSZfGnaY1B0UK.jpg",
+                image: postersList[index],
                 index: index,
               ),
             ),

@@ -24,7 +24,7 @@ class IndexCardList extends StatelessWidget {
               width: 150,
               height: 200,
               decoration: BoxDecoration(
-                borderRadius: kRadius10,
+                borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
                   image: NetworkImage(
                     image,

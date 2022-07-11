@@ -34,7 +34,7 @@ class GameBodyWidget extends StatelessWidget {
         ),
         // ListView(
         //   scrollDirection: Axis.vertical,
-        //   children: List.generate(20, (index) => GameVideoCards()),
+        //   children: List.generate(20, (index) => const GameVideoCards()),
         // )
       ],
     );

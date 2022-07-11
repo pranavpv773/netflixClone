@@ -6,8 +6,9 @@ import '../../utility/text_Widget/text_widget.dart';
 
 class HomeMovieCards extends StatelessWidget {
   final String title;
-  final String image;
-  const HomeMovieCards({Key? key, required this.title, required this.image})
+  final List<String> posterList;
+  const HomeMovieCards(
+      {Key? key, required this.title, required this.posterList})
       : super(key: key);
 
   @override
@@ -24,9 +25,9 @@ class HomeMovieCards extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: List.generate(
-                20,
+                posterList.length,
                 (index) => MainCard(
-                      image: image,
+                      imageUrl: posterList[index],
                     )),
           ),
         ),
