@@ -9,6 +9,7 @@ import 'application/home/home_bloc.dart';
 import 'application/hot_and_new/hot_and_new_bloc.dart';
 import 'application/search/search_bloc.dart';
 import 'domain/utility/di/injectable.dart';
+import 'presentation/profile/profile_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

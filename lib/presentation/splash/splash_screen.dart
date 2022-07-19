@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../main_page/tab_home.dart';
+import '../profile/profile_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -40,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) {
-          return NetflixTab();
+          return ProfileScreen();
         },
       ),
     );

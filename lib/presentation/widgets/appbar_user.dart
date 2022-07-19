@@ -11,7 +11,7 @@ class AppBarUser extends StatelessWidget {
       width: 28,
       height: 28,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(5),
         image: const DecorationImage(
           image: AssetImage(
             "assets/blueIcon.png",

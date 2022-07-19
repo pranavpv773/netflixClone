@@ -9,12 +9,13 @@ class BackgroundCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
-      child: Stack(
+      child: Column(
         children: [
           Container(
-            width: double.infinity,
+            width: size.width / 1.6,
             height: 600,
             decoration: BoxDecoration(
               borderRadius: kRadius10,
@@ -25,24 +26,19 @@ class BackgroundCard extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const IconButtons(
-                  icon: Icons.check,
-                  title: "My List",
-                ),
-                _playButton(),
-                const IconButtons(
-                  icon: Icons.info_outline_rounded,
-                  title: "Info",
-                ),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const IconButtons(
+                icon: Icons.check,
+                title: "My List",
+              ),
+              _playButton(),
+              const IconButtons(
+                icon: Icons.info_outline_rounded,
+                title: "Info",
+              ),
+            ],
           )
         ],
       ),

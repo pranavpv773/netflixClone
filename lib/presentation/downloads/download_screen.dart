@@ -43,7 +43,7 @@ class DownloadScreen extends StatelessWidget {
 }
 
 class Section2 extends StatelessWidget {
-  Section2({Key? key}) : super(key: key);
+  const Section2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

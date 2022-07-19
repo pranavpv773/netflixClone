@@ -185,8 +185,9 @@ class HomeScreen extends StatelessWidget {
                               ),
                               kheight30,
                               HomeMovieCards(
-                                  title: "Made in India",
-                                  posterList: _southIndian.sublist(0, 10)),
+                                title: "Made in India",
+                                posterList: _southIndian.sublist(0, 10),
+                              ),
                               kheight30,
                               HomeMovieCards(
                                 title: "Epic Worlds",
@@ -247,13 +248,15 @@ class HomeScreen extends StatelessWidget {
                                       kheight30,
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                            right: 10.0, left: 10),
+                                          right: 10.0,
+                                          left: 10,
+                                        ),
                                         child: Container(
                                           width: 30,
                                           height: 30,
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(5),
                                             image: const DecorationImage(
                                               image: AssetImage(
                                                 "assets/blueIcon.png",
@@ -323,7 +326,9 @@ class IconButtons extends StatelessWidget {
         ),
         Text(
           title,
-          style: const TextStyle(color: Colors.grey),
+          style: const TextStyle(
+            color: Colors.grey,
+          ),
         )
       ],
     );

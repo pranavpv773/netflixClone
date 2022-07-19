@@ -2,8 +2,6 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 
-import '../../utility/constants/constants.dart';
-
 class IndexCardList extends StatelessWidget {
   final String image;
   final int index;
@@ -21,8 +19,8 @@ class IndexCardList extends StatelessWidget {
               width: 30,
             ),
             Container(
-              width: 150,
-              height: 200,
+              width: 110,
+              height: 150,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
@@ -35,9 +33,9 @@ class IndexCardList extends StatelessWidget {
           ],
         ),
         Positioned(
-          left: -10,
-          top: 65,
-          bottom: 10,
+          left: 0,
+          top: 23,
+          bottom: 0,
           child: BorderedText(
             strokeColor: kWhite,
             strokeWidth: 4,

@@ -22,7 +22,7 @@ class IndexMovieCard extends StatelessWidget {
         ),
         kheight20,
         LimitedBox(
-          maxHeight: 200,
+          maxHeight: 150,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: List.generate(

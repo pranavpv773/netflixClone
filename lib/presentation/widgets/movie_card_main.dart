@@ -11,17 +11,18 @@ class MainCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
-          width: 150,
-          height: 180,
-          decoration: BoxDecoration(
-            borderRadius: kRadius10,
-            image: DecorationImage(
-              image: NetworkImage(
-                imageUrl,
-              ),
-              fit: BoxFit.cover,
+        width: 110,
+        height: 150,
+        decoration: BoxDecoration(
+          borderRadius: kRadius10,
+          image: DecorationImage(
+            image: NetworkImage(
+              imageUrl,
             ),
-          )),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 }

@@ -11,21 +11,21 @@ class GamesScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: NestedScrollView(
-            headerSliverBuilder:
-                (BuildContext context, bool innerBoxIsScrolled) {
-              return <Widget>[
-                const SliverAppBar(
-                  automaticallyImplyLeading: false,
-                  floating: true,
-                  pinned: true,
-                  flexibleSpace: FlexibleSpaceBar(
-                    titlePadding: EdgeInsets.all(5),
-                    title: AppBarWidget(title: "Games"),
-                  ),
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              const SliverAppBar(
+                automaticallyImplyLeading: false,
+                floating: true,
+                pinned: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  titlePadding: EdgeInsets.all(5),
+                  title: AppBarWidget(title: "Games"),
                 ),
-              ];
-            },
-            body: const GameBodyWidget()),
+              ),
+            ];
+          },
+          body: const GameBodyWidget(),
+        ),
       ),
     );
   }

@@ -16,7 +16,9 @@ class AppBarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+            padding: const EdgeInsets.only(
+              left: 8.0,
+            ),
             child: Text(
               title,
               style: GoogleFonts.montserrat(
