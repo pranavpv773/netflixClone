@@ -23,7 +23,7 @@ class RotatonalImage extends StatelessWidget {
         width: size.width,
         height: size.width,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(22),
+          borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
             image: NetworkImage(
               image,
