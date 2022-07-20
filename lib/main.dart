@@ -1,15 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_flutter/application/downloads/downloads_bloc.dart';
+import 'package:netflix_flutter/presentation/splash/splash_screen.dart';
+import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'application/fast_Laugh/fast_laugh_bloc.dart';
+import 'application/home/home_bloc.dart';
+import 'application/hot_and_new/hot_and_new_bloc.dart';
+import 'application/search/search_bloc.dart';
+import 'domain/utility/di/injectable.dart';
+import 'presentation/profile/profile_screen.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection();
+  runApp(const NetfLixClone());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class NetfLixClone extends StatelessWidget {
+  const NetfLixClone({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (ctx) => getIt<DownloadsBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<SearchBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<FastLaughBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<HotAndNewBloc>(),
+        ),
+        BlocProvider(
+          create: (ctx) => getIt<HomeBloc>(),
+        )
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
+          primaryColor: Colors.black,
+          scaffoldBackgroundColor: kBackgroundColor,
+          primarySwatch: Colors.blue,
+          backgroundColor: Colors.black,
+          textTheme: const TextTheme(
+            bodyText1: TextStyle(
+              color: Colors.white,
+            ),
+            bodyText2: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const SplashScreen(),
+      ),
+    );
   }
 }
