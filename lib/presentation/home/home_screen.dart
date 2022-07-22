@@ -86,6 +86,7 @@ class HomeScreen extends StatelessWidget {
                           state.southIndianMovieList.map((m) {
                         return "${m.originalTitle}";
                       }).toList();
+                      print(titleSouthIndianMovieList);
                       final titleTrendingTvList = state.trendingTvList.map((m) {
                         return "${m.originalName}";
                       }).toList();
@@ -97,36 +98,36 @@ class HomeScreen extends StatelessWidget {
                           state.pastYearMovieList.map((m) {
                         return "$imageAppendUrl${m.posterPath}";
                       }).toList();
-                      _releasedPastYear.shuffle();
+                      // _releasedPastYear.shuffle();
                       final _trending = state.trendingMovieList.map((m) {
                         return "$imageAppendUrl${m.posterPath}";
                       }).toList();
-                      _trending.shuffle();
+                      // _trending.shuffle();
                       final _tenseDramas = state.tenseDramaMovieList.map((m) {
                         return "$imageAppendUrl${m.posterPath}";
                       }).toList();
-                      _tenseDramas.shuffle();
+                      // _tenseDramas.shuffle();
                       final _southIndian = state.southIndianMovieList.map((m) {
                         return "$imageAppendUrl${m.posterPath}";
                       }).toList();
-                      _southIndian.shuffle();
+                      // _southIndian.shuffle();
 
                       final _top10TvShow = state.trendingTvList.map((t) {
                         return '$imageAppendUrl${t.posterPath}';
                       }).toList();
-                      _top10TvShow.shuffle();
+                      // _top10TvShow.shuffle();
                       final _top10MovieShow = state.trendingMovieList.map((t) {
                         return '$imageAppendUrl${t.posterPath}';
                       }).toList();
-                      _top10MovieShow.shuffle();
+                      // _top10MovieShow.shuffle();
                       return ListView(
                         children: [
                           const BackgroundCard(),
                           HomeMovieCards(
                             title: "Indian Movies",
                             posterList: _releasedPastYear.sublist(0, 10),
-                            overview: overViewPast,
-                            titleList: overViewPastTitle,
+                            overview: overViewPast.sublist(0, 10),
+                            titleList: overViewPastTitle.sublist(0, 10),
                           ),
                           kheight30,
                           HomeMovieCards(
@@ -146,8 +147,9 @@ class HomeScreen extends StatelessWidget {
                           IndexMovieCard(
                             title: "Top 10 TV Movies in India Today",
                             postersList: _top10TvShow.sublist(0, 10),
-                            overviewMovie: overViewTrendingTvList,
-                            titleMovie: titleTrendingTvList,
+                            overviewMovie:
+                                overViewTrendingTvList.sublist(0, 10),
+                            titleMovie: titleTrendingTvList.sublist(0, 10),
                           ),
                           kheight30,
                           HomeMovieCards(
@@ -160,22 +162,25 @@ class HomeScreen extends StatelessWidget {
                           HomeMovieCards(
                             title: "New Releases",
                             posterList: _tenseDramas.sublist(0, 10),
-                            overview: overViewTenseDramaMovieList,
-                            titleList: titleTenseDramaMovieList,
+                            overview:
+                                overViewTenseDramaMovieList.sublist(0, 10),
+                            titleList: titleTenseDramaMovieList.sublist(0, 10),
                           ),
                           kheight30,
                           IndexMovieCard(
                             title: "Top 10 TV Shows in India Today",
                             postersList: _top10MovieShow.sublist(0, 10),
-                            overviewMovie: overViewTrendingTvList,
-                            titleMovie: titleTrendingTvList,
+                            overviewMovie:
+                                overViewTrendingTvList.sublist(0, 10),
+                            titleMovie: titleTrendingTvList.sublist(0, 10),
                           ),
                           kheight30,
                           HomeMovieCards(
                             title: "Downloads For You",
                             posterList: _southIndian.sublist(0, 10),
-                            overview: overViewSouthIndianMovieList,
-                            titleList: titleSouthIndianMovieList,
+                            overview:
+                                overViewSouthIndianMovieList.sublist(0, 10),
+                            titleList: titleSouthIndianMovieList.sublist(0, 10),
                           ),
                           kheight30,
                           HomeMovieCards(
