@@ -116,16 +116,17 @@ class ComingSoonList extends StatelessWidget {
                 final formatedDate = DateFormat.yMMMd('en_US').format(_date);
 
                 return ComingSoonWidget(
-                    id: movie.id.toString(),
-                    month: formatedDate
-                        .split(' ')
-                        .first
-                        .substring(0, 3)
-                        .toUpperCase(),
-                    day: movie.releaseDate!.split('-')[1],
-                    posterPath: '$imageAppendUrl${movie.posterPath}',
-                    movieName: movie.originalTitle ?? 'No Title',
-                    description: movie.overview ?? 'No Description');
+                  id: movie.id.toString(),
+                  month: formatedDate
+                      .split(' ')
+                      .first
+                      .substring(0, 3)
+                      .toUpperCase(),
+                  day: movie.releaseDate!.split('-')[1],
+                  posterPath: '$imageAppendUrl${movie.posterPath}',
+                  movieName: movie.originalTitle ?? 'No Title',
+                  description: movie.overview ?? 'No Description',
+                );
               });
         }
       },

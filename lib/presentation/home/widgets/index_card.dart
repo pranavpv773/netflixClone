@@ -6,12 +6,18 @@ import 'indexcard_list.dart';
 
 class IndexMovieCard extends StatelessWidget {
   const IndexMovieCard(
-      {Key? key, required this.title, required this.postersList})
+      {Key? key,
+      required this.title,
+      required this.postersList,
+      required this.overviewMovie,
+      required this.titleMovie})
       : super(
           key: key,
         );
   final String title;
   final List<String> postersList;
+  final List<String> overviewMovie;
+  final List<String> titleMovie;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,7 +35,9 @@ class IndexMovieCard extends StatelessWidget {
               postersList.length,
               (index) => IndexCardList(
                 image: postersList[index],
+                overviewMovie: overviewMovie[index],
                 index: index,
+                movieTitle: titleMovie[index],
               ),
             ),
           ),
