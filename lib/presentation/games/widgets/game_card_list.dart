@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 
 class MainGameCard extends StatelessWidget {
   final String image;
-  const MainGameCard({Key? key, required this.image}) : super(key: key);
+  final String name;
+  final String subName;
+  const MainGameCard(
+      {Key? key,
+      required this.image,
+      required this.name,
+      required this.subName})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +33,18 @@ class MainGameCard extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Dominoes Cafe",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              name,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(5.0),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
             child: Text(
-              "Dominoes Cafe",
-              style: TextStyle(
+              subName,
+              style: const TextStyle(
                 fontWeight: FontWeight.w300,
                 fontSize: 10,
                 color: Colors.grey,

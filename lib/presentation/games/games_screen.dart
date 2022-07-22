@@ -24,7 +24,7 @@ class GamesScreen extends StatelessWidget {
               ),
             ];
           },
-          body: const GameBodyWidget(),
+          body: GameBodyWidget(),
         ),
       ),
     );

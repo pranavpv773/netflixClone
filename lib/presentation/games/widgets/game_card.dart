@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../utility/text_Widget/text_widget.dart';
 import 'game_card_list.dart';
+import 'image_list.dart';
 
 class GameCards extends StatelessWidget {
   final String title;
-  final String image;
-  const GameCards({Key? key, required this.title, required this.image})
-      : super(key: key);
+  GameCards({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,11 @@ class GameCards extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: List.generate(
-              20,
+              image.length,
               (index) => MainGameCard(
-                image: image,
+                image: image[index]['proImage'].toString(),
+                name: image[index]['name'].toString(),
+                subName: image[index]['subName'].toString(),
               ),
             ),
           ),
