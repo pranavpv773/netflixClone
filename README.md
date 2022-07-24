@@ -1,10 +1,13 @@
 # netflix_flutter
 
-A new Flutter project.
+project_using_bloc
 
-## Getting Started
+## packages Used
 
-This project is a starting point for a Flutter application.
+flutter_bloc
+json_serializable
+get_it
+dio
 
 A few resources to get you started if this is your first Flutter project:
 

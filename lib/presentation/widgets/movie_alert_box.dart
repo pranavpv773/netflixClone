@@ -43,7 +43,7 @@ showMovieDetails(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(overView),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(
