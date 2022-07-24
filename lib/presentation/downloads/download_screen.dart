@@ -10,7 +10,7 @@ class DownloadScreen extends StatelessWidget {
   final String title = "Downloads";
   final _widgetList = [
     const _SmartDownloads(),
-    Section2(),
+    const Section2(),
     const Section3(),
   ];
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_flutter/presentation/home/home_screen.dart';
 import 'package:netflix_flutter/presentation/main_page/tab_home.dart';
 import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 
@@ -78,16 +77,13 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(width: 30),
                 GestureDetector(
                   onTap: () {
-                    onTap:
-                    () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (ctx) {
-                            return NetflixTab();
-                          },
-                        ),
-                      );
-                    };
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (ctx) {
+                          return NetflixTab();
+                        },
+                      ),
+                    );
                   },
                   child: Column(
                     children: [
@@ -144,6 +140,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 30),
+                // ignore: sized_box_for_whitespace
                 Container(
                   width: size.width / 4,
                   child: Column(

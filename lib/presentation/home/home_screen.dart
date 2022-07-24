@@ -86,7 +86,6 @@ class HomeScreen extends StatelessWidget {
                           state.southIndianMovieList.map((m) {
                         return "${m.originalTitle}";
                       }).toList();
-                      print(titleSouthIndianMovieList);
                       final titleTrendingTvList = state.trendingTvList.map((m) {
                         return "${m.originalName}";
                       }).toList();

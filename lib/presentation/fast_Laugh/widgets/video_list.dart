@@ -33,11 +33,11 @@ class VideoList extends StatelessWidget {
   Widget build(BuildContext context) {
     final posterPath =
         VideoListItemInheritedWidget.of(context)?.movieData.posterPath;
-    final ScreenVideoUrls = videoUrls[index % videoUrls.length];
+    final screenVideoUrls = videoUrls[index % videoUrls.length];
     return Stack(
       children: [
         FastLaughVideoPlayer(
-          videoUrl: ScreenVideoUrls,
+          videoUrl: screenVideoUrls,
           onStateChanged: (bool) {},
         ),
         Align(

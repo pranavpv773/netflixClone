@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_flutter/presentation/games/widgets/video_game_list.dart';
-import 'package:netflix_flutter/presentation/utility/colors/colors.dart';
 import '../../utility/constants/constants.dart';
 import 'game_card.dart';
 import 'game_video_cards.dart';
 import 'image_list.dart';
 
 class GameBodyWidget extends StatelessWidget {
-  GameBodyWidget({Key? key}) : super(key: key);
+  const GameBodyWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,7 @@ class GameBodyWidget extends StatelessWidget {
           ),
         ),
         kheight20,
-        GameCards(
+        const GameCards(
           title: "All Mobile Games",
         ),
         GameVideoCards(

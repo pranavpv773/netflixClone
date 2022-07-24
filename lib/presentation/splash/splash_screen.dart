@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../main_page/tab_home.dart';
 import '../profile/profile_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -41,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) {
-          return ProfileScreen();
+          return const ProfileScreen();
         },
       ),
     );

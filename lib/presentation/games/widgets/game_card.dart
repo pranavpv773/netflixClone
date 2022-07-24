@@ -5,7 +5,7 @@ import 'image_list.dart';
 
 class GameCards extends StatelessWidget {
   final String title;
-  GameCards({
+  const GameCards({
     Key? key,
     required this.title,
   }) : super(key: key);
