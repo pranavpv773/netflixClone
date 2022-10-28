@@ -2,12 +2,13 @@
 
 project_using_bloc
 
-## packages Used
+# packages Used![WhatsApp Image 2022-10-28 at 09 48 01](https://user-images.githubusercontent.com/91565180/198501496-dc108fa3-e119-4f5f-be7d-b5d419a3a6d8.jpeg)
 
-flutter_bloc
-json_serializable
-get_it
-dio
+
+## flutter_bloc
+## json_serializable
+## get_it
+## dio
 
 A few resources to get you started if this is your first Flutter project:
 
